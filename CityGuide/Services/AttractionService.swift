@@ -26,29 +26,31 @@ final class AttractionService {
     }
     
     func attractionsInCity(title: String, handler: @escaping (Result<Attraction, Error>) -> Void) {
-        guard let url = URL(string: "\(endpoint)poi.json") else { return }
-        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
-        components?.queryItems = [
-            URLQueryItem(name: "location_id", value: title),
-            URLQueryItem(name: "account", value: accountID),
-            URLQueryItem(name: "token", value: token)
-        ]
-        guard let requestURL = components?.url else { return }
-        URLSession.shared.dataTask(with: requestURL) { (data, response, error) in
+        guard let url = prepareRequestURL(city: title) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
                 handler(.failure(error))
                 return
             }
             do {
-                let attractions = try! JSONDecoder().decode(AttractionResults.self, from: data!)
+                let attractions = try JSONDecoder().decode(AttractionResults.self, from: data!)
                 for i in attractions.all {
                     print(i)
                 }
             } catch let error as NSError {
                 handler(.failure(error))
             }
-            
         }.resume()
-        
+    }
+    
+    private func prepareRequestURL(city: String) -> URL? {
+        guard let url = URL(string: "\(endpoint)poi.json") else { return nil}
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        components?.queryItems = [
+            URLQueryItem(name: "location_id", value: city),
+            URLQueryItem(name: "account", value: accountID),
+            URLQueryItem(name: "token", value: token)
+        ]
+        return components?.url
     }
 }

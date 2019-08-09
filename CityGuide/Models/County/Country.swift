@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-final class Country {
+struct Country {
     let title: String
     let capital: String
     let region: String
@@ -21,17 +21,6 @@ final class Country {
     
     var location: CLLocation {
         return CLLocation(latitude: coordinates[0], longitude: coordinates[1])
-    }
-    
-    init(title: String, capital: String, region: String, subregion: String, population: Int, borders: [String], flagPath: String, coordinates: [Double]) {
-        self.title = title
-        self.capital = capital
-        self.region = region
-        self.subregion = subregion
-        self.population = population
-        self.borders = borders
-        self.coordinates = coordinates
-        self.flagPath = flagPath
     }
 }
 
