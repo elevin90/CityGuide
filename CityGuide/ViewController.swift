@@ -12,9 +12,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let services = AttractionService.shared
+        services.attractionsInCity(title: "London") { (result) in
+            switch result {
+            case .success(let responnse):
+                print(responnse)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
-
-
 }
 
