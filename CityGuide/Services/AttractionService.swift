@@ -34,9 +34,6 @@ final class AttractionService {
             }
             do {
                 let attractions = try JSONDecoder().decode(AttractionResults.self, from: data!)
-                for i in attractions.all {
-                    print(i)
-                }
             } catch let error as NSError {
                 handler(.failure(error))
             }

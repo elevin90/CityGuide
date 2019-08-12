@@ -8,14 +8,16 @@
 
 import Foundation
 
-struct CountrySection {
+struct Region {
     
     let title: String
     let countries: [Country]
-    var isExpanded = false
+    let imageTitle: String
     
-    init(title: String, countries: [Country]) {
-        self.title = title
-        self.countries = countries
+    enum RegionType: String {
+        case Europe  = "Europe"
+        case America = "America"
+        case Asia    = "Asia"
+        case Africa  = "Africa"
     }
 }
