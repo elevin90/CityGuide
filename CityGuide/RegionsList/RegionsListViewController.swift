@@ -29,15 +29,19 @@ class RegionsListViewController: UIViewController {
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 20, height: 350)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 10, height: 300)
         return layout
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         presenter?.view = self
         presenter?.loadCountries()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         setupUI()
     }
     
     private func setupUI() {
@@ -72,9 +76,6 @@ extension RegionsListViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
         }
         cell.fill(with: presenter.region(at: indexPath.row))
-        cell.bounceCompletion = {[weak self] (isSelected) in
-           
-        }
         return cell
     }
 }
@@ -91,9 +92,5 @@ extension RegionsListViewController: UICollectionViewDelegate {
             cell.transform = defaultTransform
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        
     }
 }

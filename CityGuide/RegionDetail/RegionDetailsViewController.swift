@@ -22,13 +22,23 @@ class RegionDetailsViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       setupUI()
+    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private func setupUI() {
+        navigationController?.navigationBar.prefersLargeTitles = false
+        let nib = UINib(nibName: CountryTableViewCell.nibName, bundle: Bundle.main)
+        tableView.register(nib, forCellReuseIdentifier: CountryTableViewCell.nibName)
+        tableView.register(RegionHeaderView.self, forHeaderFooterViewReuseIdentifier: RegionHeaderView.nibName)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.estimatedRowHeight = 50
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.estimatedSectionHeaderHeight = 50
         tableView.reloadData()
     }
 }
@@ -39,8 +49,17 @@ extension RegionDetailsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
-        cell.textLabel?.text  = region.countries[indexPath.row].title
-        return cell
+        let countryCell = tableView.dequeueReusableCell(withIdentifier: CountryTableViewCell.nibName, for: indexPath) as? CountryTableViewCell
+        let country = region.countries[indexPath.row]
+        countryCell?.prepare(with: country.title, imagePath: country.flagPath)
+        return countryCell ?? UITableViewCell()
+    }
+}
+
+extension RegionDetailsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = RegionHeaderView.create()
+        header?.prepare(with: region.title, image: UIImage(named: region.imageTitle))
+        return header
     }
 }

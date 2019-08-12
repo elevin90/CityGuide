@@ -20,21 +20,28 @@ extension UIView {
     }
 }
 
-extension UIImage {
-    /// Resize UIImage to new width keeping the image's aspect ratio.
-    func resize(toWidth scaledToWidth: CGFloat) -> UIImage {
-        let image = self
-        let oldWidth = image.size.width
-        let scaleFactor = scaledToWidth / oldWidth
-        
-        let newHeight = image.size.height * scaleFactor
-        let newWidth = oldWidth * scaleFactor
-        
-        let scaledSize = CGSize(width:newWidth, height:newHeight)
-        UIGraphicsBeginImageContextWithOptions(scaledSize, true, image.scale)
-        image.draw(in: CGRect(x: 0, y: 0, width: scaledSize.width, height: scaledSize.height))
-        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return scaledImage!
+public protocol NibLoadableView: class {
+    static var nibName: String { get }
+    static var nib: UINib { get }
+}
+
+public extension NibLoadableView where Self: UIView {
+    static var nibName: String {
+        return String(describing: self)
+    }
+    
+    static var nib: UINib {
+        return UINib(nibName: nibName, bundle: Bundle(for: self))
+    }
+    
+    static var instantiate: Self {
+        guard let view = nib.instantiate(withOwner: nil, options: nil).first as? Self else {
+            fatalError("Could not load:\(nib), of type \(self)")
+        }
+        return view
     }
 }
+
+
+
+
