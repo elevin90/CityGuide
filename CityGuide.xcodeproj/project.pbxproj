@@ -35,12 +35,20 @@
 		22A6220823000DFF00312115 /* RegionsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A6220723000DFF00312115 /* RegionsListPresenter.swift */; };
 		22CE428F2300989D0013DFA4 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CE428E2300989D0013DFA4 /* View.swift */; };
 		22CE42932300993F0013DFA4 /* RegionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CE42912300993F0013DFA4 /* RegionDetailsViewController.swift */; };
-		22CE42942300993F0013DFA4 /* RegionDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CE42922300993F0013DFA4 /* RegionDetailsViewController.xib */; };
 		22CE429D230162700013DFA4 /* RegionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CE429C230162700013DFA4 /* RegionHeaderView.swift */; };
 		22CE429F230162760013DFA4 /* RegionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CE429E230162760013DFA4 /* RegionHeaderView.xib */; };
 		22CE42A1230163960013DFA4 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CE42A0230163960013DFA4 /* UIImage.swift */; };
 		22CE42A723016B350013DFA4 /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CE42A523016B350013DFA4 /* CountryTableViewCell.swift */; };
 		22CE42A823016B350013DFA4 /* CountryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CE42A623016B350013DFA4 /* CountryTableViewCell.xib */; };
+		22CE42B12301A5050013DFA4 /* RegionDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22CE42B02301A5040013DFA4 /* RegionDetailsViewController.xib */; };
+		22CE42B52301A9F40013DFA4 /* RegionDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CE42B42301A9F40013DFA4 /* RegionDetailsPresenter.swift */; };
+		22D6286A230298E700FA71EB /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D62869230298E700FA71EB /* AppRouter.swift */; };
+		22D6286E23029F8200FA71EB /* CountryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D6286C23029F8200FA71EB /* CountryDetailsViewController.swift */; };
+		22D6286F23029F8200FA71EB /* CountryDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D6286D23029F8200FA71EB /* CountryDetailsViewController.xib */; };
+		22D98D902302A6F800014411 /* CountryDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D98D8F2302A6F800014411 /* CountryDetailsPresenter.swift */; };
+		22D98D932302B11000014411 /* CityImagesTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D98D922302B11000014411 /* CityImagesTableHeaderView.swift */; };
+		22D98D952302B12100014411 /* CityImagesTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D98D942302B12100014411 /* CityImagesTableHeaderView.xib */; };
+		22D98D972302BE1800014411 /* CityImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D98D962302BE1800014411 /* CityImagesService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,12 +94,20 @@
 		22A6220723000DFF00312115 /* RegionsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsListPresenter.swift; sourceTree = "<group>"; };
 		22CE428E2300989D0013DFA4 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		22CE42912300993F0013DFA4 /* RegionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionDetailsViewController.swift; sourceTree = "<group>"; };
-		22CE42922300993F0013DFA4 /* RegionDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionDetailsViewController.xib; sourceTree = "<group>"; };
 		22CE429C230162700013DFA4 /* RegionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionHeaderView.swift; sourceTree = "<group>"; };
 		22CE429E230162760013DFA4 /* RegionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegionHeaderView.xib; sourceTree = "<group>"; };
 		22CE42A0230163960013DFA4 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		22CE42A523016B350013DFA4 /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		22CE42A623016B350013DFA4 /* CountryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryTableViewCell.xib; sourceTree = "<group>"; };
+		22CE42B02301A5040013DFA4 /* RegionDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegionDetailsViewController.xib; sourceTree = "<group>"; };
+		22CE42B42301A9F40013DFA4 /* RegionDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegionDetailsPresenter.swift; path = CityGuide/RegionDetail/Controller/RegionDetailsPresenter.swift; sourceTree = SOURCE_ROOT; };
+		22D62869230298E700FA71EB /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		22D6286C23029F8200FA71EB /* CountryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewController.swift; sourceTree = "<group>"; };
+		22D6286D23029F8200FA71EB /* CountryDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryDetailsViewController.xib; sourceTree = "<group>"; };
+		22D98D8F2302A6F800014411 /* CountryDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsPresenter.swift; sourceTree = "<group>"; };
+		22D98D922302B11000014411 /* CityImagesTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityImagesTableHeaderView.swift; sourceTree = "<group>"; };
+		22D98D942302B12100014411 /* CityImagesTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityImagesTableHeaderView.xib; sourceTree = "<group>"; };
+		22D98D962302BE1800014411 /* CityImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityImagesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +149,8 @@
 		22421A2522FD5F7000FE1EC2 /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
+				22D62868230298CF00FA71EB /* Routing */,
+				22D6286B23029E4D00FA71EB /* CountryDetails */,
 				22CE42902300991C0013DFA4 /* RegionDetail */,
 				22A622002300062B00312115 /* RegionsList */,
 				22A621E422FD63EC00312115 /* Keys */,
@@ -176,6 +194,7 @@
 				22A621D922FD635200312115 /* LocationManager.swift */,
 				22A621DC22FD635200312115 /* WeatherService.swift */,
 				22A621ED22FD817F00312115 /* AttractionService.swift */,
+				22D98D962302BE1800014411 /* CityImagesService.swift */,
 				22A621E722FD675900312115 /* Reachability.swift */,
 			);
 			path = Services;
@@ -258,9 +277,9 @@
 		22CE42902300991C0013DFA4 /* RegionDetail */ = {
 			isa = PBXGroup;
 			children = (
+				22CE42B32301A9A90013DFA4 /* Controller */,
+				22CE42B22301A9A10013DFA4 /* Presenter */,
 				22CE429B230162620013DFA4 /* Views */,
-				22CE42922300993F0013DFA4 /* RegionDetailsViewController.xib */,
-				22CE42912300993F0013DFA4 /* RegionDetailsViewController.swift */,
 			);
 			path = RegionDetail;
 			sourceTree = "<group>";
@@ -290,6 +309,67 @@
 				22CE42A623016B350013DFA4 /* CountryTableViewCell.xib */,
 			);
 			path = CountryCell;
+			sourceTree = "<group>";
+		};
+		22CE42B22301A9A10013DFA4 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				22CE42B42301A9F40013DFA4 /* RegionDetailsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		22CE42B32301A9A90013DFA4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				22CE42912300993F0013DFA4 /* RegionDetailsViewController.swift */,
+				22CE42B02301A5040013DFA4 /* RegionDetailsViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		22D62868230298CF00FA71EB /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				22D62869230298E700FA71EB /* AppRouter.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		22D6286B23029E4D00FA71EB /* CountryDetails */ = {
+			isa = PBXGroup;
+			children = (
+				22D98D912302B0BB00014411 /* Views */,
+				22D98D8E2302A6E100014411 /* CountryDetailsPresenter */,
+				22D628702302A56500FA71EB /* Controller */,
+			);
+			path = CountryDetails;
+			sourceTree = "<group>";
+		};
+		22D628702302A56500FA71EB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				22D6286C23029F8200FA71EB /* CountryDetailsViewController.swift */,
+				22D6286D23029F8200FA71EB /* CountryDetailsViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		22D98D8E2302A6E100014411 /* CountryDetailsPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				22D98D8F2302A6F800014411 /* CountryDetailsPresenter.swift */,
+			);
+			path = CountryDetailsPresenter;
+			sourceTree = "<group>";
+		};
+		22D98D912302B0BB00014411 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				22D98D922302B11000014411 /* CityImagesTableHeaderView.swift */,
+				22D98D942302B12100014411 /* CityImagesTableHeaderView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,13 +454,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				22CE42A823016B350013DFA4 /* CountryTableViewCell.xib in Resources */,
+				22CE42B12301A5050013DFA4 /* RegionDetailsViewController.xib in Resources */,
 				22421A3422FD5F7300FE1EC2 /* LaunchScreen.storyboard in Resources */,
 				22421A3122FD5F7300FE1EC2 /* Assets.xcassets in Resources */,
 				22A622032300063D00312115 /* RegionCell.xib in Resources */,
-				22CE42942300993F0013DFA4 /* RegionDetailsViewController.xib in Resources */,
 				22A621E622FD63EC00312115 /* AppSandbox.plist in Resources */,
 				22CE429F230162760013DFA4 /* RegionHeaderView.xib in Resources */,
 				22421A2C22FD5F7000FE1EC2 /* Main.storyboard in Resources */,
+				22D6286F23029F8200FA71EB /* CountryDetailsViewController.xib in Resources */,
+				22D98D952302B12100014411 /* CityImagesTableHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,25 +485,31 @@
 				22A621E022FD635200312115 /* WeatherService.swift in Sources */,
 				22A621D522FD630600312115 /* Wind.swift in Sources */,
 				22A621DE22FD635200312115 /* CoreDataStack.swift in Sources */,
+				22D6286A230298E700FA71EB /* AppRouter.swift in Sources */,
 				22A621E322FD639600312115 /* String.swift in Sources */,
 				22CE42932300993F0013DFA4 /* RegionDetailsViewController.swift in Sources */,
 				22CE429D230162700013DFA4 /* RegionHeaderView.swift in Sources */,
+				22D98D932302B11000014411 /* CityImagesTableHeaderView.swift in Sources */,
 				22A621EC22FD7EC200312115 /* AttractionLink.swift in Sources */,
+				22D98D902302A6F800014411 /* CountryDetailsPresenter.swift in Sources */,
 				22CE42A1230163960013DFA4 /* UIImage.swift in Sources */,
 				22A621DD22FD635200312115 /* LocationManager.swift in Sources */,
 				22421A2F22FD5F7000FE1EC2 /* CityGuide.xcdatamodeld in Sources */,
 				22A621D622FD630600312115 /* Country.swift in Sources */,
 				22A621F222FDB5E000312115 /* AttractionLocation.swift in Sources */,
 				22A621EA22FD798700312115 /* Attraction.swift in Sources */,
+				22CE42B52301A9F40013DFA4 /* RegionDetailsPresenter.swift in Sources */,
 				22A6220823000DFF00312115 /* RegionsListPresenter.swift in Sources */,
 				22A621EE22FD817F00312115 /* AttractionService.swift in Sources */,
 				22A621DF22FD635200312115 /* CountriesService.swift in Sources */,
 				22A622042300063D00312115 /* RegionCell.swift in Sources */,
 				22CE42A723016B350013DFA4 /* CountryTableViewCell.swift in Sources */,
+				22D6286E23029F8200FA71EB /* CountryDetailsViewController.swift in Sources */,
 				22421A2722FD5F7000FE1EC2 /* AppDelegate.swift in Sources */,
 				22A621E822FD675900312115 /* Reachability.swift in Sources */,
 				22CE428F2300989D0013DFA4 /* View.swift in Sources */,
 				22A621FF22FF5BBC00312115 /* RegionsListViewController.swift in Sources */,
+				22D98D972302BE1800014411 /* CityImagesService.swift in Sources */,
 				22A621F022FDA97100312115 /* AttractionResults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

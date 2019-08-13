@@ -42,11 +42,42 @@
                     <navigationItem key="navigationItem" id="lYF-Oh-6Ze"/>
                     <connections>
                         <outlet property="collectionView" destination="iyL-aR-3J6" id="g65-lc-y47"/>
+                        <segue destination="WRx-8n-mlP" kind="show" identifier="ShowRegion" id="r9C-Ja-2eV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="957.97101449275374" y="20.758928571428569"/>
+        </scene>
+        <!--Region Details View Controller-->
+        <scene sceneID="f7o-Bc-gDE">
+            <objects>
+                <viewController id="WRx-8n-mlP" customClass="RegionDetailsViewController" customModule="CityGuide" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lxi-c9-It3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="DtD-Eu-1J4">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h2u-En-VU7" firstAttribute="trailing" secondItem="DtD-Eu-1J4" secondAttribute="trailing" id="gy9-VL-ptl"/>
+                            <constraint firstItem="DtD-Eu-1J4" firstAttribute="top" secondItem="h2u-En-VU7" secondAttribute="top" id="n7B-u6-7cd"/>
+                            <constraint firstItem="DtD-Eu-1J4" firstAttribute="leading" secondItem="h2u-En-VU7" secondAttribute="leading" id="u9A-so-iPi"/>
+                            <constraint firstAttribute="bottom" secondItem="DtD-Eu-1J4" secondAttribute="bottom" id="v8y-Wy-qMb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h2u-En-VU7"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="DtD-Eu-1J4" id="wVh-2O-vlB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="356-Tv-aYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1681" y="21"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QZJ-LG-de7">

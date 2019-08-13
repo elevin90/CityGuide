@@ -11,8 +11,7 @@ import WebKit
 
 class CountryTableViewCell: UITableViewCell, NibLoadableView {
 
-    @IBOutlet private weak var webView: WKWebView!
-   // @IBOutlet private weak var flagImageView: UIImageView!
+    @IBOutlet private weak var capitalLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     
     private let cache = NSCache<NSString, UIImage>()
@@ -22,10 +21,9 @@ class CountryTableViewCell: UITableViewCell, NibLoadableView {
         accessoryType = .disclosureIndicator
     }
     
-    func prepare(with title: String, imagePath: String) {
+    func prepare(with title: String, capital: String) {
         titleLabel.text = title
-        if let url = URL(string: imagePath) {
-        }
+        capitalLabel.text = capital
     }
 }
 
@@ -43,7 +41,6 @@ class CountryTableViewCell: UITableViewCell, NibLoadableView {
 //            URLSession.shared.dataTask(with: url) { (data, _, error) in
 //                if error != nil { return }
 //                if let _data = data { //let image = UIImage(data: _data) {
-//                    let data2 = _data.pngData()
 //                    DispatchQueue.main.async { [weak self] in
 //                        print(url)
 //                        //self?.flagImageView.image = image

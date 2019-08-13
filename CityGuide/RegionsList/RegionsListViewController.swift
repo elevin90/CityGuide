@@ -17,11 +17,13 @@ class RegionsListViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var presenter: RegionsListPresenter!
+    private var presenter: RegionsListPresenting
+    private let router: AppRouting
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
         presenter = RegionsListPresenter()
+        router = AppRouter()
+        super.init(coder: aDecoder)
     }
 
     private lazy var collectionLayout: UICollectionViewFlowLayout = {
@@ -29,19 +31,15 @@ class RegionsListViewController: UIViewController {
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 10, height: 300)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 20, height: 350)
         return layout
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter?.view = self
-        presenter?.loadCountries()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-         setupUI()
+        setupUI()
+        presenter.view = self
+        presenter.loadCountries()
     }
     
     private func setupUI() {
@@ -67,14 +65,13 @@ extension RegionsListViewController: RegionsListView {
 
 extension RegionsListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter?.regionsCount() ?? 0
+        return presenter.regionsCount()
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RegionCell.cellID, for: indexPath) as?
-            RegionCell else {
-                return UICollectionViewCell()
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RegionCell.cellID,
+                                                            for: indexPath) as? RegionCell
+        else { return UICollectionViewCell() }
         cell.fill(with: presenter.region(at: indexPath.row))
         return cell
     }
@@ -83,14 +80,10 @@ extension RegionsListViewController: UICollectionViewDataSource {
 extension RegionsListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? RegionCell else { return }
-        let defaultTransform = cell.transform
-        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
-            cell.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        }) { (isCompleted) in
-            let region = self.presenter.region(at: indexPath.row)
-            let detailVC = RegionDetailsViewController(with: region)
-            cell.transform = defaultTransform
-            self.navigationController?.pushViewController(detailVC, animated: true)
+        let region = self.presenter.region(at: indexPath.row)
+        cell.bounceCompletion = {
+            self.router.route(type: .regionDetails, from: self, with: region)
         }
+        cell.bounceOnSelection()
     }
 }

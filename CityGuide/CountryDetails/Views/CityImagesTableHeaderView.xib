@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CityImagesTableHeaderView" customModule="CityGuide" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="309"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="748" verticalCompressionResistancePriority="748" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NGo-vh-W9E">
+                    <rect key="frame" x="264" y="0.0" width="150" height="300"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Asia" translatesAutoresizingMaskIntoConstraints="NO" id="BgQ-WG-3cz">
+                            <rect key="frame" x="0.0" y="0.0" width="150" height="94.5"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Asia" translatesAutoresizingMaskIntoConstraints="NO" id="DJm-uo-4I7">
+                            <rect key="frame" x="0.0" y="102.5" width="150" height="95"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Asia" translatesAutoresizingMaskIntoConstraints="NO" id="tPc-nc-jpD">
+                            <rect key="frame" x="0.0" y="205.5" width="150" height="94.5"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="300" id="5pB-VB-Fa6"/>
+                        <constraint firstAttribute="width" constant="150" id="fve-u0-l6Q"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="754" verticalCompressionResistancePriority="753" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="N10-Ib-ZDT">
+                    <rect key="frame" x="0.0" y="206" width="252" height="94"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Asia" translatesAutoresizingMaskIntoConstraints="NO" id="oKb-52-AmQ">
+                            <rect key="frame" x="0.0" y="0.0" width="122" height="94"/>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Asia" translatesAutoresizingMaskIntoConstraints="NO" id="kjl-q0-wMq">
+                            <rect key="frame" x="130" y="0.0" width="122" height="94"/>
+                        </imageView>
+                    </subviews>
+                </stackView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Asia" translatesAutoresizingMaskIntoConstraints="NO" id="lUw-Yl-NlY">
+                    <rect key="frame" x="0.0" y="0.0" width="252" height="196"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="NGo-vh-W9E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="HaT-2a-vML"/>
+                <constraint firstItem="NGo-vh-W9E" firstAttribute="leading" secondItem="N10-Ib-ZDT" secondAttribute="trailing" constant="12" id="Iol-o2-Mzi"/>
+                <constraint firstItem="N10-Ib-ZDT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IwV-k9-un6"/>
+                <constraint firstItem="N10-Ib-ZDT" firstAttribute="bottom" secondItem="NGo-vh-W9E" secondAttribute="bottom" id="Nud-mD-gco"/>
+                <constraint firstItem="lUw-Yl-NlY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PeC-tI-AiY"/>
+                <constraint firstItem="NGo-vh-W9E" firstAttribute="leading" secondItem="lUw-Yl-NlY" secondAttribute="trailing" constant="12" id="XMD-Xq-AqS"/>
+                <constraint firstItem="lUw-Yl-NlY" firstAttribute="bottom" secondItem="DJm-uo-4I7" secondAttribute="bottom" constant="-1.5" id="eJn-wK-rFW"/>
+                <constraint firstItem="lUw-Yl-NlY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eVv-c3-uC6"/>
+                <constraint firstItem="N10-Ib-ZDT" firstAttribute="top" secondItem="lUw-Yl-NlY" secondAttribute="bottom" constant="10" id="ejb-mN-Y9h"/>
+                <constraint firstAttribute="bottom" secondItem="NGo-vh-W9E" secondAttribute="bottom" constant="9" id="fGa-GH-fAF"/>
+                <constraint firstAttribute="trailing" secondItem="NGo-vh-W9E" secondAttribute="trailing" id="sMu-P1-U9K"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="mainImage" destination="lUw-Yl-NlY" id="vXu-yq-hHz"/>
+                <outletCollection property="images" destination="BgQ-WG-3cz" collectionClass="NSMutableArray" id="nGe-L6-Ano"/>
+                <outletCollection property="images" destination="DJm-uo-4I7" collectionClass="NSMutableArray" id="Jf4-gg-2Bd"/>
+                <outletCollection property="images" destination="tPc-nc-jpD" collectionClass="NSMutableArray" id="3aa-UK-XgM"/>
+                <outletCollection property="images" destination="kjl-q0-wMq" collectionClass="NSMutableArray" id="V2B-Ti-r30"/>
+                <outletCollection property="images" destination="oKb-52-AmQ" collectionClass="NSMutableArray" id="cqb-3Q-Qdx"/>
+            </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="-161.04910714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Asia" width="383.5" height="215.5"/>
+    </resources>
+</document>

@@ -25,7 +25,7 @@ final class AttractionService {
         self.accountID = accountID
     }
     
-    func attractionsInCity(title: String, handler: @escaping (Result<Attraction, Error>) -> Void) {
+    func attractionsInCity(title: String, handler: @escaping (Result<[Attraction], Error>) -> Void) {
         guard let url = prepareRequestURL(city: title) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {
@@ -34,6 +34,7 @@ final class AttractionService {
             }
             do {
                 let attractions = try JSONDecoder().decode(AttractionResults.self, from: data!)
+                handler(.success(attractions.all))
             } catch let error as NSError {
                 handler(.failure(error))
             }

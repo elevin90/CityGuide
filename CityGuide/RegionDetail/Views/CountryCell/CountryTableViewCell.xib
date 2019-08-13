@@ -19,38 +19,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="78.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dG4-lz-FaG">
-                        <rect key="frame" x="58" y="12" width="238" height="54.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dG4-lz-FaG">
+                        <rect key="frame" x="12" y="12" width="284" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOX-XU-o1Q">
-                        <rect key="frame" x="14" y="23.5" width="32" height="32"/>
-                        <color key="backgroundColor" red="1" green="0.24775085220000001" blue="0.17653039379999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="32" id="jXy-CB-gLj"/>
-                            <constraint firstAttribute="height" constant="32" id="lVy-Gz-0b4"/>
-                        </constraints>
-                        <wkWebViewConfiguration key="configuration">
-                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                            <wkPreferences key="preferences"/>
-                        </wkWebViewConfiguration>
-                    </wkWebView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g69-BN-h45">
+                        <rect key="frame" x="12" y="14" width="294" height="52.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="dG4-lz-FaG" firstAttribute="leading" secondItem="fOX-XU-o1Q" secondAttribute="trailing" constant="12" id="82N-Rv-OzG"/>
-                    <constraint firstAttribute="bottom" secondItem="dG4-lz-FaG" secondAttribute="bottom" constant="12" id="dGN-uk-ZWQ"/>
-                    <constraint firstItem="fOX-XU-o1Q" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="g7c-xL-D2x"/>
+                    <constraint firstItem="dG4-lz-FaG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="ISa-L4-SGp"/>
+                    <constraint firstAttribute="bottom" secondItem="g69-BN-h45" secondAttribute="bottom" constant="12" id="fSd-g3-xvk"/>
+                    <constraint firstItem="g69-BN-h45" firstAttribute="top" secondItem="dG4-lz-FaG" secondAttribute="bottom" constant="2" id="hDw-JE-gfr"/>
+                    <constraint firstItem="g69-BN-h45" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="nTc-px-Vqz"/>
+                    <constraint firstAttribute="trailing" secondItem="g69-BN-h45" secondAttribute="trailing" constant="14" id="sNl-8s-UKo"/>
                     <constraint firstItem="dG4-lz-FaG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="t4J-8a-e9s"/>
                     <constraint firstAttribute="trailing" secondItem="dG4-lz-FaG" secondAttribute="trailing" constant="24" id="taX-6u-acg"/>
-                    <constraint firstItem="fOX-XU-o1Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="tm3-Vx-wUN"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="capitalLabel" destination="g69-BN-h45" id="2ef-pm-1zx"/>
                 <outlet property="titleLabel" destination="dG4-lz-FaG" id="5hc-gI-jvF"/>
-                <outlet property="webView" destination="fOX-XU-o1Q" id="bFF-gG-3W9"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="164.39732142857142"/>
         </tableViewCell>

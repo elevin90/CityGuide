@@ -24,6 +24,7 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="xkH-6J-7KZ">
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <inset key="separatorInset" minX="18" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -31,9 +32,10 @@
                 <constraint firstAttribute="bottom" secondItem="xkH-6J-7KZ" secondAttribute="bottom" id="GJu-kO-YSX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xkH-6J-7KZ" secondAttribute="trailing" id="OWa-yx-0CL"/>
                 <constraint firstItem="xkH-6J-7KZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="TdD-6N-KfI"/>
-                <constraint firstItem="xkH-6J-7KZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dqL-Wm-TeK"/>
+                <constraint firstItem="xkH-6J-7KZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gsW-lk-0JX"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
         </view>
     </objects>
 </document>

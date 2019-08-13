@@ -26,13 +26,13 @@ class RegionCell: UICollectionViewCell {
     }
     
     override var isHighlighted: Bool {
-        didSet { bounce(isHighlighted) }
+        didSet { bounceonHighlit(isHighlighted) }
     }
     
-    var bounceCompletion: ((Bool)->())? = nil
+    var bounceCompletion: (()->())? = nil
     
     
-    private func bounce(_ bounce: Bool) {
+    private func bounceonHighlit(_ bounce: Bool) {
         UIView.animate(
             withDuration: 0.8,
             delay: 0,
@@ -41,6 +41,19 @@ class RegionCell: UICollectionViewCell {
             options: [.allowUserInteraction, .beginFromCurrentState],
             animations: { self.transform = bounce ? CGAffineTransform(scaleX: 0.9, y: 0.9) : .identity },
             completion: nil)
+    }
+    
+    func bounceOnSelection() {
+        let defaultTransform = transform
+        UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 1, animations: {[weak self] in
+            self?.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        }) { (isCompleted) in
+            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 5, initialSpringVelocity: 1, animations: {[weak self] in
+                 self?.transform = defaultTransform
+            }, completion: {[weak self] (isCompleted) in
+                self?.bounceCompletion?()
+            })
+        }
     }
     
     private func configureCell() {
