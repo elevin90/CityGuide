@@ -49,6 +49,11 @@
 		22D98D932302B11000014411 /* CityImagesTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D98D922302B11000014411 /* CityImagesTableHeaderView.swift */; };
 		22D98D952302B12100014411 /* CityImagesTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D98D942302B12100014411 /* CityImagesTableHeaderView.xib */; };
 		22D98D972302BE1800014411 /* CityImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D98D962302BE1800014411 /* CityImagesService.swift */; };
+		22D98D992302C0C800014411 /* CountryImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D98D982302C0C800014411 /* CountryImage.swift */; };
+		22D98D9E2302FD2A00014411 /* AttractionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D98D9C2302FD2A00014411 /* AttractionTableViewCell.swift */; };
+		22D98D9F2302FD2A00014411 /* AttractionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D98D9D2302FD2A00014411 /* AttractionTableViewCell.xib */; };
+		22D98DA22303055600014411 /* AttractionTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D98DA12303055600014411 /* AttractionTableHeaderView.swift */; };
+		22D98DA42303057500014411 /* AttractionTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D98DA32303057500014411 /* AttractionTableHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +113,11 @@
 		22D98D922302B11000014411 /* CityImagesTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityImagesTableHeaderView.swift; sourceTree = "<group>"; };
 		22D98D942302B12100014411 /* CityImagesTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityImagesTableHeaderView.xib; sourceTree = "<group>"; };
 		22D98D962302BE1800014411 /* CityImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityImagesService.swift; sourceTree = "<group>"; };
+		22D98D982302C0C800014411 /* CountryImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryImage.swift; sourceTree = "<group>"; };
+		22D98D9C2302FD2A00014411 /* AttractionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionTableViewCell.swift; sourceTree = "<group>"; };
+		22D98D9D2302FD2A00014411 /* AttractionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttractionTableViewCell.xib; sourceTree = "<group>"; };
+		22D98DA12303055600014411 /* AttractionTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionTableHeaderView.swift; sourceTree = "<group>"; };
+		22D98DA32303057500014411 /* AttractionTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttractionTableHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +242,7 @@
 			children = (
 				22A621D022FD630600312115 /* Region.swift */,
 				22A621D222FD630600312115 /* Country.swift */,
+				22D98D982302C0C800014411 /* CountryImage.swift */,
 			);
 			path = Country;
 			sourceTree = "<group>";
@@ -366,10 +377,38 @@
 		22D98D912302B0BB00014411 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				22D98DA02303053E00014411 /* AttractionHeader */,
+				22D98D9B2302FD0300014411 /* AttractionCell */,
+				22D98D9A2302FCFA00014411 /* Header */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		22D98D9A2302FCFA00014411 /* Header */ = {
+			isa = PBXGroup;
+			children = (
 				22D98D922302B11000014411 /* CityImagesTableHeaderView.swift */,
 				22D98D942302B12100014411 /* CityImagesTableHeaderView.xib */,
 			);
-			path = Views;
+			path = Header;
+			sourceTree = "<group>";
+		};
+		22D98D9B2302FD0300014411 /* AttractionCell */ = {
+			isa = PBXGroup;
+			children = (
+				22D98D9C2302FD2A00014411 /* AttractionTableViewCell.swift */,
+				22D98D9D2302FD2A00014411 /* AttractionTableViewCell.xib */,
+			);
+			path = AttractionCell;
+			sourceTree = "<group>";
+		};
+		22D98DA02303053E00014411 /* AttractionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				22D98DA12303055600014411 /* AttractionTableHeaderView.swift */,
+				22D98DA32303057500014411 /* AttractionTableHeaderView.xib */,
+			);
+			path = AttractionHeader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,6 +494,8 @@
 			files = (
 				22CE42A823016B350013DFA4 /* CountryTableViewCell.xib in Resources */,
 				22CE42B12301A5050013DFA4 /* RegionDetailsViewController.xib in Resources */,
+				22D98D9F2302FD2A00014411 /* AttractionTableViewCell.xib in Resources */,
+				22D98DA42303057500014411 /* AttractionTableHeaderView.xib in Resources */,
 				22421A3422FD5F7300FE1EC2 /* LaunchScreen.storyboard in Resources */,
 				22421A3122FD5F7300FE1EC2 /* Assets.xcassets in Resources */,
 				22A622032300063D00312115 /* RegionCell.xib in Resources */,
@@ -484,6 +525,7 @@
 				22A621D722FD630600312115 /* WeatherForecast.swift in Sources */,
 				22A621E022FD635200312115 /* WeatherService.swift in Sources */,
 				22A621D522FD630600312115 /* Wind.swift in Sources */,
+				22D98D992302C0C800014411 /* CountryImage.swift in Sources */,
 				22A621DE22FD635200312115 /* CoreDataStack.swift in Sources */,
 				22D6286A230298E700FA71EB /* AppRouter.swift in Sources */,
 				22A621E322FD639600312115 /* String.swift in Sources */,
@@ -492,6 +534,7 @@
 				22D98D932302B11000014411 /* CityImagesTableHeaderView.swift in Sources */,
 				22A621EC22FD7EC200312115 /* AttractionLink.swift in Sources */,
 				22D98D902302A6F800014411 /* CountryDetailsPresenter.swift in Sources */,
+				22D98DA22303055600014411 /* AttractionTableHeaderView.swift in Sources */,
 				22CE42A1230163960013DFA4 /* UIImage.swift in Sources */,
 				22A621DD22FD635200312115 /* LocationManager.swift in Sources */,
 				22421A2F22FD5F7000FE1EC2 /* CityGuide.xcdatamodeld in Sources */,
@@ -510,6 +553,7 @@
 				22CE428F2300989D0013DFA4 /* View.swift in Sources */,
 				22A621FF22FF5BBC00312115 /* RegionsListViewController.swift in Sources */,
 				22D98D972302BE1800014411 /* CityImagesService.swift in Sources */,
+				22D98D9E2302FD2A00014411 /* AttractionTableViewCell.swift in Sources */,
 				22A621F022FDA97100312115 /* AttractionResults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,6 +719,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6AABQB8S42;
 				INFOPLIST_FILE = CityGuide/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -693,6 +738,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6AABQB8S42;
 				INFOPLIST_FILE = CityGuide/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -42,6 +42,7 @@ class RegionDetailsViewController: UIViewController {
         searchVC.searchResultsUpdater = self
         searchVC.delegate = self
         navigationItem.searchController = searchVC
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = presenter.regionTitle
         navigationItem.hidesSearchBarWhenScrolling = true
         tableView.estimatedRowHeight = 50
@@ -51,6 +52,7 @@ class RegionDetailsViewController: UIViewController {
         tableView.estimatedSectionHeaderHeight = 50
         tableView.reloadData()
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "left-arrow"), style: .plain, target: self, action: #selector(onBack))
+        
     }
     
     @objc private func onBack() {

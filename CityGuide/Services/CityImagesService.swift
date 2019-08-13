@@ -21,7 +21,30 @@ final class CityImagesService {
         self.accountID = accountID
     }
     
-    public func loadImages(for city: String, handler: @escaping(Result<[Data], Error>) -> Void) {
-        
+    public func loadImages(for city: String, handler: @escaping(Result<[CityImage], Error>) -> Void) {
+        guard let url = prepareRequestURL(city: city) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                handler(.failure(error))
+                return
+            }
+            do {
+                guard let data = data else { return }
+                let imageLinks = try JSONDecoder().decode(CityImages.self, from: data)
+                handler(.success(imageLinks.results))
+            } catch {
+                print(error.localizedDescription)
+            }
+        }.resume()
+    }
+    
+    private func prepareRequestURL(city: String) -> URL? {
+        guard let url = URL(string: "\(endpoint)search/photos") else { return nil}
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        components?.queryItems = [
+            URLQueryItem(name: "query", value: city),
+            URLQueryItem(name: "client_id", value: accountID),
+        ]
+        return components?.url
     }
 }

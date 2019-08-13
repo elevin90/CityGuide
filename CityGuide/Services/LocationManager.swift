@@ -60,7 +60,6 @@ extension AppLocationManager: CLLocationManagerDelegate {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             locationManager.startMonitoringSignificantLocationChanges()
-            //locationManager.startUpdatingLocation()
         default:
             print("Not allowed \(status)")
         }

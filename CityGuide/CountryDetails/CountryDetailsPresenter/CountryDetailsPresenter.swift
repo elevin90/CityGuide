@@ -12,16 +12,35 @@ protocol CountryDetailsPresenting {
     var country: Country { get }
     var view: CountryDetailsView? { get set }
     var attractions: [Attraction] { get }
+    var cityImages: [CityImage] { get }
 }
 
 class CountryDetailsPresenter: CountryDetailsPresenting {
+
     weak var view: CountryDetailsView?
     let country: Country
     var attractions: [Attraction] = []
+    var cityImages: [CityImage] = []
     
     init(country: Country) {
         self.country = country
         loadAttractions()
+        loadImages()
+        loadWeatherForecast()
+    }
+    
+    private func loadImages() {
+        CityImagesService.shared.loadImages(for: country.capital) {[weak self] (result) in
+            switch result {
+            case .success(let links):
+                DispatchQueue.main.async {
+                    self?.cityImages = links
+                    self?.view?.showCityImages(from: links)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     private func loadAttractions() {
@@ -37,5 +56,16 @@ class CountryDetailsPresenter: CountryDetailsPresenting {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    private func loadWeatherForecast() {
+        WeatherService().weather(for: country.capital, handler: { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        })
     }
 }
