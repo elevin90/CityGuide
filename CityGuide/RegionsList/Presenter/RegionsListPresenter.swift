@@ -53,12 +53,10 @@ extension RegionsListPresenter: RegionsListPresenting{
     private func sortCountries(countries: [Country]) -> [Region] {
         let type = Region.RegionType.self
         let europeanCountries = countries.compactMap{$0}.filter{$0.region == type.Europe.rawValue}
-        let africanCountries = countries.compactMap{$0}.filter{$0.region ==  type.Africa.rawValue}
-        let americanCountries = countries.compactMap{$0}.filter{$0.region == type.America.rawValue}
+        let africanCountries = countries.compactMap{$0}.filter{$0.region  ==  type.Africa.rawValue}
         let asianCountries = countries.compactMap{$0}.filter{$0.region == type.Asia.rawValue}
         regions = [Region(title: type.Europe.rawValue, countries: europeanCountries, imageTitle: type.Europe.rawValue),
                 Region(title: type.Africa.rawValue, countries: africanCountries, imageTitle: type.Africa.rawValue),
-                Region(title: type.America.rawValue, countries: americanCountries, imageTitle: type.America.rawValue),
                 Region(title: type.Asia.rawValue, countries: asianCountries, imageTitle: type.Asia.rawValue)]
         return regions
     }

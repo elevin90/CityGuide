@@ -10,6 +10,7 @@ import Foundation
 
 protocol CountryDetailsPresenting {
     var country: Country { get }
+    var weather: WeatherForecast? { get }
     var view: CountryDetailsView? { get set }
     var attractions: [Attraction] { get }
     var cityImages: [CityImage] { get }
@@ -19,6 +20,7 @@ class CountryDetailsPresenter: CountryDetailsPresenting {
 
     weak var view: CountryDetailsView?
     let country: Country
+    var weather: WeatherForecast?
     var attractions: [Attraction] = []
     var cityImages: [CityImage] = []
     
@@ -59,10 +61,13 @@ class CountryDetailsPresenter: CountryDetailsPresenting {
     }
     
     private func loadWeatherForecast() {
-        WeatherService().weather(for: country.capital, handler: { (result) in
+        WeatherService().weather(for: country.capital, handler: {[weak self] (result) in
             switch result {
-            case .success(let response):
-                print(response)
+            case .success(let forecast):
+                self?.weather = forecast
+                DispatchQueue.main.async {
+                    self?.view?.showWeather(forecast: forecast)
+                }
             case .failure(let error):
                 print(error)
             }

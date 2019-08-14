@@ -59,7 +59,7 @@ extension RegionsListViewController: RegionsListView {
     }
     
     func showError(message: String) {
-        
+        router.showError(title: "No internet connection", message: "The app requiers internet connection on first launch", from: self)
     }
 }
 
@@ -81,8 +81,9 @@ extension RegionsListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? RegionCell else { return }
         let region = self.presenter.region(at: indexPath.row)
-        cell.bounceCompletion = {
-            self.router.route(type: .regionDetails, from: self, with: region)
+        cell.bounceCompletion = {[weak self] in
+            guard let welf = self else { return  }
+            welf.router.route(type: .regionDetails, from: welf, with: region)
         }
         cell.bounceOnSelection()
     }

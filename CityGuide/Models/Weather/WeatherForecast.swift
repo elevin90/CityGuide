@@ -8,6 +8,17 @@
 
 import Foundation
 
+enum WeatherType: String {
+    case clearSky = "clear sky"
+    case minorClouds = "few clouds"
+    case scatteredClouds = "scattered clouds"
+    case brokenClouds = "broken clouds"
+    case lightDrizzly = "light intensity drizzle"
+    case lightRain  = "light rain"
+    case showerRain = "shower rain"
+    case mist       = "mist"
+}
+
 struct WeatherRawForecast: Codable {
     let list: [WeatherForecast]
 }
@@ -29,6 +40,10 @@ struct Temperature {
     let maximal: Double
     let average: Double
     
+    var temperatureString: String {
+        let diffString = String(format: "%.2f", average - 273.15)
+        return "\(diffString)˚C"
+    }
 }
 
 extension Temperature: Codable {
@@ -36,13 +51,6 @@ extension Temperature: Codable {
         case minimal = "temp_min"
         case maximal = "temp_max"
         case average = "temp"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.minimal = try container.decode(Double.self, forKey: .minimal)
-        self.maximal = try container.decode(Double.self, forKey: .maximal)
-        self.average = try container.decode(Double.self, forKey: .average)
     }
 }
 
@@ -55,11 +63,5 @@ extension Weather: Codable {
     enum CodingKeys: String, CodingKey {
         case description = "description"
         case conditions  = "main"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.description = try container.decode(String.self, forKey: .description).firstUppercased
-        self.conditions = try container.decode(String.self, forKey: .conditions).firstUppercased
     }
 }

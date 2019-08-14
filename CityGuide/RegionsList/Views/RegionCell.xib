@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,9 +21,9 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lwU-wm-vsf">
                         <rect key="frame" x="0.0" y="0.0" width="443" height="186"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDd-QY-DKE">
-                        <rect key="frame" x="5" y="10" width="42" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDd-QY-DKE">
+                        <rect key="frame" x="12" y="12" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -33,8 +32,8 @@
             <constraints>
                 <constraint firstItem="lwU-wm-vsf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="BBm-vu-W1T"/>
                 <constraint firstAttribute="trailing" secondItem="lwU-wm-vsf" secondAttribute="trailing" id="Izl-KP-oso"/>
-                <constraint firstItem="JDd-QY-DKE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="K2n-dj-nbg"/>
-                <constraint firstItem="JDd-QY-DKE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="drT-UP-Cw4"/>
+                <constraint firstItem="JDd-QY-DKE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="K2n-dj-nbg"/>
+                <constraint firstItem="JDd-QY-DKE" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="drT-UP-Cw4"/>
                 <constraint firstItem="lwU-wm-vsf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jmU-6c-hbj"/>
                 <constraint firstAttribute="bottom" secondItem="lwU-wm-vsf" secondAttribute="bottom" id="zX6-hy-6HV"/>
             </constraints>
@@ -44,7 +43,7 @@
                 <outlet property="imageView" destination="lwU-wm-vsf" id="NwU-JL-2dN"/>
                 <outlet property="nameLabel" destination="JDd-QY-DKE" id="JaC-9G-9vL"/>
             </connections>
-            <point key="canvasLocation" x="230.5" y="212"/>
+            <point key="canvasLocation" x="229.59999999999999" y="211.39430284857573"/>
         </collectionViewCell>
     </objects>
 </document>
