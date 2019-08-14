@@ -28,6 +28,10 @@ extension RegionsListPresenter: RegionsListPresenting{
     }
 
     func loadCountries() {
+        guard Reachability.isConnectedToNetwork() else {
+            manageOfflineRegionsCreation()
+            return
+        }
         CountriesService.loadAllCountriea {[weak self] (result) in
             guard let welf = self else { return }
             switch result {
@@ -50,6 +54,17 @@ extension RegionsListPresenter: RegionsListPresenting{
         return regions[path.section].countries[path.row]
     }
     
+    private func manageOfflineRegionsCreation() {
+        if let savedRegions = CoreDataStack.shared.getall(type: .region) as? [SavedRegion],
+            !savedRegions.isEmpty {
+            regions.removeAll()
+            for savedRegion in savedRegions {
+                regions.append(Region(from: savedRegion))
+            }
+            view?.showRegions(regions.sorted{ $0.title < $1.title })
+        }
+    }
+    
     private func sortCountries(countries: [Country]) -> [Region] {
         let type = Region.RegionType.self
         let europeanCountries = countries.compactMap{$0}.filter{$0.region == type.Europe.rawValue}
@@ -58,6 +73,12 @@ extension RegionsListPresenter: RegionsListPresenting{
         regions = [Region(title: type.Europe.rawValue, countries: europeanCountries, imageTitle: type.Europe.rawValue),
                 Region(title: type.Africa.rawValue, countries: africanCountries, imageTitle: type.Africa.rawValue),
                 Region(title: type.Asia.rawValue, countries: asianCountries, imageTitle: type.Asia.rawValue)]
-        return regions
+            CoreDataStack.shared.clearAll()
+        DispatchQueue.global().async {
+            self.regions.forEach({ (region) in
+                CoreDataStack.shared.saveNew(region: region)
+            })
+        }
+        return regions.sorted{ $0.title < $1.title }
     }
 }

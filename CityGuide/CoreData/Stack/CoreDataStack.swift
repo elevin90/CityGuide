@@ -9,13 +9,21 @@
 import Foundation
 import CoreData
 
+enum CoreDataRequestType {
+    case region
+    case country
+    case attraction
+}
+
 final class CoreDataStack {
+    
+    static let shared = CoreDataStack()
+
     
     private let modelName: String
     
-    private init(modelName: String) {
-        self.modelName = modelName
-        
+    private init() {
+        self.modelName = "CityGuide"
     }
     
     private lazy var storageURL: URL? = {
@@ -73,6 +81,17 @@ final class CoreDataStack {
         
     }
     
+    private func getRequestWithType(type: CoreDataRequestType) -> NSFetchRequest<NSFetchRequestResult> {
+        switch type {
+        case .attraction:
+              return SavedAttraction.fetchRequest()
+        case .country:
+            return SavedCountry.fetchRequest()
+        case .region:
+            return SavedRegion.fetchRequest()
+        }
+    }
+    
     public func save(_ object: NSManagedObject) {
         mainContext.perform {[weak self] in
             guard let welf = self else { return }
@@ -88,4 +107,52 @@ final class CoreDataStack {
         }
     }
     
+    public func clearAll() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "SavedRegion")
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try mainContext.execute(batchDeleteRequest)
+            try backgroundContext.execute(batchDeleteRequest)
+        } catch {
+           print(error.localizedDescription)
+        }
+    }
+    
+    public func getall(type: CoreDataRequestType) -> [NSManagedObject]? {
+        do {
+            return try backgroundContext.fetch(getRequestWithType(type: type)) as? [NSManagedObject]
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
+    
+    
+    public func saveNew(region: Region) {
+        let savedRegion = SavedRegion(context: backgroundContext)
+        savedRegion.title = region.title
+        savedRegion.imageData = region.imageTitle.pngImageData() as NSData?
+        savedRegion.imageName = region.imageTitle
+        for country in region.countries {
+            let savedCountry = SavedCountry(context: backgroundContext)
+            savedCountry.title = country.title
+            savedCountry.capital = country.capital
+            savedRegion.addToCountries(savedCountry)
+        }
+        save(savedRegion)
+    }
+    
+    public func saveAttractions(attractions: [Attraction], savedCountry: SavedCountry) {
+        for attraction in attractions {
+            let savedAttraction = SavedAttraction(context: backgroundContext)
+            savedAttraction.title = attraction.title
+            savedAttraction.raiting = attraction.raiting
+            savedAttraction.latitude = attraction.location.latitude
+            savedAttraction.longtitude = attraction.location.longitude
+            savedCountry.addToAttractions(savedAttraction)
+            savedAttraction.country = savedCountry
+            save(savedAttraction)
+        }
+    }
 }

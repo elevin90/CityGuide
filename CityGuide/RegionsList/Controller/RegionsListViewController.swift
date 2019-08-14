@@ -59,7 +59,8 @@ extension RegionsListViewController: RegionsListView {
     }
     
     func showError(message: String) {
-        router.showError(title: "No internet connection", message: "The app requiers internet connection on first launch", from: self)
+        router.showError(title: "No internet connection",
+                         message: "The app requiers internet connection on first launch", from: self)
     }
 }
 

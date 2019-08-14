@@ -14,6 +14,16 @@ struct Attraction {
     let links: [AttractionLink]
     let raiting: Double
     let location: AttractionLocation
+    
+    
+    init(from savedAttraction: SavedAttraction) {
+        title = savedAttraction.title ?? ""
+        links = []
+        raiting = savedAttraction.raiting
+        location = AttractionLocation(latitude: savedAttraction.latitude,
+                                      longitude: savedAttraction.longtitude)
+    }
+    
 }
 
 extension Attraction: Codable {

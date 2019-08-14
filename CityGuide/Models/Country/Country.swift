@@ -22,6 +22,17 @@ struct Country {
     var location: CLLocation {
         return CLLocation(latitude: coordinates[0], longitude: coordinates[1])
     }
+    
+    init(with savedCountry: SavedCountry) {
+        title = savedCountry.title ?? ""
+        capital = savedCountry.capital ?? ""
+        region = savedCountry.country?.title ?? ""
+        subregion = ""
+        population = 0
+        borders = []
+        coordinates = [0, 0]
+        flagPath = ""
+    }
 }
 
 extension Country: Codable {

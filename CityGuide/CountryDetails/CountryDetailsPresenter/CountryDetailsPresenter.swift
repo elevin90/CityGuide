@@ -46,16 +46,48 @@ class CountryDetailsPresenter: CountryDetailsPresenting {
     }
     
     private func loadAttractions() {
+        guard Reachability.isConnectedToNetwork() else {
+            manageOfflineAttractions()
+            return
+        }
+        
         AttractionService.shared.attractionsInCity(title: country.capital) {[weak self] (result) in
             switch result {
             case .success(let attractions):
-                print(attractions.count)
                 self?.attractions = attractions
+                DispatchQueue.global().async {
+                    self?.saveAttractions()
+                }
                 DispatchQueue.main.async {
                     self?.view?.showAttractions()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func manageOfflineAttractions() {
+        if let savedAttractions = CoreDataStack.shared.getall(type: .attraction) as? [SavedAttraction],
+            !savedAttractions.isEmpty {
+            attractions.removeAll()
+            for savedAttraction in savedAttractions {
+                if let countryTitle = savedAttraction.country?.title, countryTitle == country.title {
+                    attractions.append(Attraction(from: savedAttraction))
+                }
+            }
+            DispatchQueue.main.async {[weak self] in
+                self?.view?.showAttractions()
+            }
+        }
+    }
+    
+    private func saveAttractions() {
+        let savedObjects = CoreDataStack.shared.getall(type: .country)
+        guard let savedCountries = savedObjects as? [SavedCountry] else { return }
+        for savedCountry in savedCountries  {
+            if savedCountry.capital == country.capital {
+                CoreDataStack.shared.saveAttractions(attractions: attractions, savedCountry: savedCountry)
             }
         }
     }

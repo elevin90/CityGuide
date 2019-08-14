@@ -25,7 +25,6 @@ class RegionDetailsPresenter {
         self.region = region
         self.countries = region.countries
     }
-    
 }
 
 extension RegionDetailsPresenter: RegionDetailsPresenting {
