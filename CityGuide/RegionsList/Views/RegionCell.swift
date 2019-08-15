@@ -57,6 +57,7 @@ class RegionCell: UICollectionViewCell {
     }
     
     private func configureCell() {
+        imageView.alpha = 0
         contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
@@ -74,33 +75,13 @@ class RegionCell: UICollectionViewCell {
     func fill(with region: Region) {
         nameLabel.text = region.title
         imageView.image = UIImage(named: region.imageTitle)
+        UIView.animate(withDuration: 0.2) {[weak self] in
+            self?.imageView.alpha = 1
+        }
     }
     
     override func prepareForReuse() {
         imageView.image = nil
-    }
-}
-
-extension RegionCell {
-   private func manageImage(with url: URL)  {
-        imageView.image = nil
-        if let image = cache.object(forKey: url.absoluteString as NSString) {
-            DispatchQueue.main.async { [weak self] in
-                self?.imageView.image = image
-                return
-            }
-        } else {
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
-            if error != nil { return }
-            if let _data = data, let image = UIImage(data: _data) {
-                DispatchQueue.main.async { [weak self] in
-                    print(url)
-                    self?.imageView.image = image
-                    self?.cache.setObject(image, forKey: url.absoluteString as NSString)
-                    }
-                }
-            }.resume()
-        }
     }
 }
 

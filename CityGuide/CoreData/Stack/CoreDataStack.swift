@@ -93,7 +93,7 @@ final class CoreDataStack {
     }
     
     public func save(_ object: NSManagedObject) {
-        mainContext.perform {[weak self] in
+        mainContext.performAndWait {[weak self] in
             guard let welf = self else { return }
             if welf.mainContext.hasChanges {
                 do { try welf.mainContext.save() }

@@ -181,8 +181,8 @@
 		22421A2522FD5F7000FE1EC2 /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
-				226780682304199E00DE4D2C /* AttractionOnMap */,
 				22D62868230298CF00FA71EB /* Routing */,
+				226780682304199E00DE4D2C /* AttractionOnMap */,
 				22D6286B23029E4D00FA71EB /* CountryDetails */,
 				22CE42902300991C0013DFA4 /* RegionDetail */,
 				22A622002300062B00312115 /* RegionsList */,
@@ -835,7 +835,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6AABQB8S42;
 				INFOPLIST_FILE = CityGuide/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -854,7 +854,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6AABQB8S42;
 				INFOPLIST_FILE = CityGuide/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

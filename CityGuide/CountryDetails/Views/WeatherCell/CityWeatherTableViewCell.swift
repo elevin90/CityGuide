@@ -27,12 +27,16 @@ class CityWeatherTableViewCell: UITableViewCell, NibLoadableView {
         } else if conditions == WeatherType.minorClouds.rawValue
             || conditions == WeatherType.scatteredClouds.rawValue
             || conditions == WeatherType.brokenClouds.rawValue
+            || conditions == WeatherType.overcastClouds.rawValue
             || conditions == WeatherType.mist.rawValue {
             weatherImageView.image = #imageLiteral(resourceName: "sunAndClouds")
         } else if conditions == WeatherType.lightDrizzly.rawValue
             || conditions == WeatherType.lightRain.rawValue
-            || conditions == WeatherType.showerRain.rawValue {
+            || conditions == WeatherType.showerRain.rawValue
+            || conditions == WeatherType.moderateRain.rawValue {
             weatherImageView.image = #imageLiteral(resourceName: "rain")
+        } else {
+            weatherImageView.image  = #imageLiteral(resourceName: "cloud")
         }
     }
 }

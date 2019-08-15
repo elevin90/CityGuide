@@ -15,6 +15,14 @@ class AttractionTableHeaderView: UITableViewHeaderFooterView, NibLoadableView {
     static func create() -> AttractionTableHeaderView? {
         return Bundle.main.loadNibNamed(AttractionTableHeaderView.nibName, owner: nil, options: nil)?.first as? AttractionTableHeaderView
     }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+       // titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 14).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 14).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 14).isActive = true
+        layoutSubviews()
+    }
     
     func prepare(with title: String) {
         titleLabel.text = title

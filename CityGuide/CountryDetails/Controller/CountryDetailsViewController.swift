@@ -98,30 +98,36 @@ extension CountryDetailsViewController: UITableViewDataSource {
             return cell
         }
     }
-}
-
-extension CountryDetailsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            let header = CityImagesTableHeaderView.create()
-            header?.prepare(with:  presenter.cityImages)
-            return header
+         return nil
         case 1:
-            let header = AttractionTableHeaderView.create()
-            header?.prepare(with:  "Weather for taday")
-            return header
+            return "Weather for taday"
         case 2:
-            let header = AttractionTableHeaderView.create()
-            header?.prepare(with:  "Where to go?")
-            return header
+           return "Where to go?"
         default:
             return nil
         }
     }
+}
+
+extension CountryDetailsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            let header = CityImagesTableHeaderView.create()
+            header?.prepare(with: presenter.cityImages)
+            return header
+        }
+        return  UITableViewHeaderFooterView()
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        guard indexPath.section == 2 else {
+            return
+        }
         router.route(type: .map, from: self, with: presenter.attractions[indexPath.row])
     }
 }

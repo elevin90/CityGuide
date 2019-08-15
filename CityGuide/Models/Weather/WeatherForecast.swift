@@ -13,9 +13,11 @@ enum WeatherType: String {
     case minorClouds = "few clouds"
     case scatteredClouds = "scattered clouds"
     case brokenClouds = "broken clouds"
+    case overcastClouds = "overcast clouds"
     case lightDrizzly = "light intensity drizzle"
     case lightRain  = "light rain"
     case showerRain = "shower rain"
+    case moderateRain = "moderate rain"
     case mist       = "mist"
 }
 
@@ -41,7 +43,7 @@ struct Temperature {
     let average: Double
     
     var temperatureString: String {
-        let diffString = String(format: "%.2f", average - 273.15)
+        let diffString = String(format: "%.1f", average - 273.15)
         return "\(diffString)˚C"
     }
 }

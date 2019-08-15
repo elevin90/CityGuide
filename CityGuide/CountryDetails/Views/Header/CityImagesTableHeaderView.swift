@@ -13,6 +13,8 @@ class CityImagesTableHeaderView: UITableViewHeaderFooterView, NibLoadableView {
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet private weak var mainImage: UIImageView!
     @IBOutlet private var images: [UIImageView]!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var defaultImage: UIImageView!
     
     private let cache = NSCache<NSString, UIImage>()
     
@@ -21,20 +23,25 @@ class CityImagesTableHeaderView: UITableViewHeaderFooterView, NibLoadableView {
     }
     
     func prepare(with cityImages: [CityImage]) {
+        if !Reachability.isConnectedToNetwork() || cityImages.count <= 5 {
+            manageOfflineImages()
+            return
+        }
         for (index,image) in cityImages.enumerated() {
             guard images.count > index, let url = URL(string: image.urls.link) else {
-                setupGradient()
                 return
             }
+            setupGradient()
+            errorLabel.isHidden = true
+            defaultImage.isHidden = true
             manageImage(with: url, imageView: images[index])
         }
-     
     }
     
     private func setupGradient() {
         let gradient = CAGradientLayer()
         gradient.frame = gradientView.bounds
-        gradient.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.5).cgColor]
+        gradient.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.1).cgColor]
         gradientView.layer.insertSublayer(gradient, at: 0)
         bringSubviewToFront(gradientView)
     }
@@ -59,5 +66,11 @@ extension CityImagesTableHeaderView {
                 }
             }.resume()
         }
+    }
+    
+    private func manageOfflineImages() {
+        bringSubviewToFront(gradientView)
+        defaultImage.isHidden = false
+        errorLabel.isHidden = false
     }
 }
