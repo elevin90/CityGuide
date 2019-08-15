@@ -9,10 +9,15 @@
 import Foundation
 
 
-class CountriesService {
+final class CountriesService {
     
-    static func loadAllCountriea(handler: @escaping (Result<[Country], Error>) -> Void) {
-        let countriesURL = URL(string: "https://restcountries.eu/rest/v2")!
+    static let shared = CountriesService()
+    let baseURL = "https://restcountries.eu/"
+    
+    private init() {}
+    
+    func loadAllCountries(handler: @escaping (Result<[Country], Error>) -> Void) {
+        let countriesURL = URL(string: "\(baseURL)rest/v2")!
         URLSession.shared.dataTask(with: countriesURL) { (data, response, error) in
             guard let data = data else { handler(.failure(error!)); return }
             let models = try? JSONDecoder().decode([Country].self, from: data)

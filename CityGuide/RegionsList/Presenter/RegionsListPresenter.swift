@@ -32,7 +32,7 @@ extension RegionsListPresenter: RegionsListPresenting{
             manageOfflineRegionsCreation()
             return
         }
-        CountriesService.loadAllCountriea {[weak self] (result) in
+        CountriesService.shared.loadAllCountries {[weak self] (result) in
             guard let welf = self else { return }
             switch result {
             case .success(let countries):

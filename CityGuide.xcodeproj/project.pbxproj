@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2232FD152305825100A13522 /* ServicesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2232FD142305825100A13522 /* ServicesTests.swift */; };
 		22421A2722FD5F7000FE1EC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22421A2622FD5F7000FE1EC2 /* AppDelegate.swift */; };
 		22421A2C22FD5F7000FE1EC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22421A2A22FD5F7000FE1EC2 /* Main.storyboard */; };
 		22421A2F22FD5F7000FE1EC2 /* CityGuide.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22421A2D22FD5F7000FE1EC2 /* CityGuide.xcdatamodeld */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2232FD142305825100A13522 /* ServicesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesTests.swift; sourceTree = "<group>"; };
 		22421A2322FD5F7000FE1EC2 /* CityGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22421A2622FD5F7000FE1EC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22421A2B22FD5F7000FE1EC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				22421A3E22FD5F7300FE1EC2 /* CityGuideTests.swift */,
+				2232FD142305825100A13522 /* ServicesTests.swift */,
 				22421A4022FD5F7300FE1EC2 /* Info.plist */,
 			);
 			path = CityGuideTests;
@@ -678,6 +681,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2232FD152305825100A13522 /* ServicesTests.swift in Sources */,
 				22421A3F22FD5F7300FE1EC2 /* CityGuideTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
