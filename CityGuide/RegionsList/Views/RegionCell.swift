@@ -58,7 +58,6 @@ class RegionCell: UICollectionViewCell {
     
     private func configureCell() {
         imageView.alpha = 0
-        contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
         layer.masksToBounds = false

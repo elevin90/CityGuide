@@ -33,6 +33,7 @@ class RegionDetailsViewController: UIViewController {
     
     private func setupUI() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = UIColor.appColor(.background)
         let nib = UINib(nibName: CountryTableViewCell.nibName, bundle: Bundle.main)
         tableView.register(nib, forCellReuseIdentifier: CountryTableViewCell.nibName)
         tableView.register(RegionHeaderView.self, forHeaderFooterViewReuseIdentifier: RegionHeaderView.nibName)
@@ -51,8 +52,8 @@ class RegionDetailsViewController: UIViewController {
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 50
         tableView.reloadData()
+        tableView.backgroundColor = UIColor.appColor(.background)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "left-arrow"), style: .plain, target: self, action: #selector(onBack))
-        
     }
     
     @objc private func onBack() {

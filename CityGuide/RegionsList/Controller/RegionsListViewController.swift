@@ -30,6 +30,7 @@ class RegionsListViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         layout.scrollDirection = .vertical
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 20, height: 350)
         return layout
@@ -46,10 +47,13 @@ class RegionsListViewController: UIViewController {
         collectionView.collectionViewLayout = collectionLayout
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Regions"
+        navigationController?.navigationBar.backgroundColor = UIColor.appColor(.background)
+        view.backgroundColor = UIColor.appColor(.background)
         let cellNib = UINib(nibName: RegionCell.cellID, bundle: Bundle.main)
         collectionView.register(cellNib, forCellWithReuseIdentifier: RegionCell.cellID)
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.backgroundColor = UIColor.appColor(.cell)
     }
 }
 

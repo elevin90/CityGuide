@@ -127,8 +127,6 @@ final class CoreDataStack {
         }
     }
     
-    
-    
     public func saveNew(region: Region) {
         let savedRegion = SavedRegion(context: backgroundContext)
         savedRegion.title = region.title
