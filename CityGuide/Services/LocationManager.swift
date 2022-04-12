@@ -47,7 +47,6 @@ extension AppLocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard !locations.isEmpty else { return }
         if let currentLocation = locations.last {
-            
             locationChanged?(currentLocation)
             geocoder.reverseGeocodeLocation(currentLocation) { (placemarks, error) in
                 

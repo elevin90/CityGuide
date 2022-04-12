@@ -15,10 +15,10 @@ struct Region {
     let imageTitle: String
     
     enum RegionType: String {
-        case Europe  = "Europe"
-        case America = "America"
-        case Asia    = "Asia"
-        case Africa  = "Africa"
+        case Europe
+        case America
+        case Asia
+        case Africa
     }
     
     init(title: String, countries: [Country], imageTitle: String) {

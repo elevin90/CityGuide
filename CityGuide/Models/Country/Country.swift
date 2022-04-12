@@ -15,11 +15,13 @@ struct Country {
     let region: String
     let subregion: String
     let population: Int
-    let borders: [String]
     let coordinates: [Double]
     let flagPath: String
     
     var location: CLLocation {
+        guard coordinates.count > 1 else {
+            return CLLocation()
+        }
         return CLLocation(latitude: coordinates[0], longitude: coordinates[1])
     }
     
@@ -29,9 +31,19 @@ struct Country {
         region = savedCountry.country?.title ?? ""
         subregion = ""
         population = 0
-        borders = []
         coordinates = [0, 0]
         flagPath = ""
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        capital = try container.decodeIfPresent(String.self, forKey: .capital) ?? "No capital"
+        self.title = try container.decodeIfPresent(String.self, forKey: .title) ?? "No Title"
+        self.region = try container.decodeIfPresent(String.self, forKey: .region) ?? "No Region"
+        self.subregion = try container.decodeIfPresent(String.self, forKey: .subregion) ?? "No subregion"
+        self.population = try container.decodeIfPresent(Int.self, forKey: .population) ?? 0
+        self.coordinates = try container.decodeIfPresent([Double].self, forKey: .coordinates) ?? [0, 0]
+        self.flagPath = try container.decodeIfPresent(String.self, forKey: .flagPath) ?? ""
     }
 }
 
@@ -42,7 +54,6 @@ extension Country: Codable {
         case region  = "region"
         case population = "population"
         case subregion = "subregion"
-        case borders    = "borders"
         case coordinates = "latlng"
         case flagPath = "flag"
     }
