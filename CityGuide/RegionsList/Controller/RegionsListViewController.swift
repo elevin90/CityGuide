@@ -47,8 +47,8 @@ class RegionsListViewController: UIViewController {
         collectionView.collectionViewLayout = collectionLayout
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Regions"
-        navigationController?.navigationBar.backgroundColor = UIColor.appColor(.background)
-        view.backgroundColor = UIColor.appColor(.background)
+        view.backgroundColor = UIColor.appColor(.cell)
+        extendedLayoutIncludesOpaqueBars = true
         let cellNib = UINib(nibName: RegionCell.cellID, bundle: Bundle.main)
         collectionView.register(cellNib, forCellWithReuseIdentifier: RegionCell.cellID)
         collectionView.dataSource = self

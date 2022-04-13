@@ -53,7 +53,8 @@ class CountryDetailsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "left-arrow"), style: .plain,
                                                            target: self, action: #selector(onBack))
-        view.backgroundColor = UIColor.appColor(.background)
+        view.backgroundColor = UIColor.appColor(.cell)
+        navigationController?.topViewController?.extendedLayoutIncludesOpaqueBars = true
     }
     
     @objc private func onBack() {
