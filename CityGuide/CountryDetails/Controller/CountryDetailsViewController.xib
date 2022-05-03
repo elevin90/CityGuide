@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="mki-9O-5pc">
-                    <rect key="frame" x="0.0" y="20" width="414" height="876"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                 </tableView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="XjL-a2-jAI">
@@ -36,7 +36,7 @@
                 <constraint firstItem="mki-9O-5pc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="e42-zP-bmf"/>
                 <constraint firstItem="XjL-a2-jAI" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="eTF-4R-O7L"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mki-9O-5pc" secondAttribute="trailing" id="isS-Ub-24N"/>
-                <constraint firstItem="mki-9O-5pc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="og6-uB-WL4"/>
+                <constraint firstItem="mki-9O-5pc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="og6-uB-WL4"/>
             </constraints>
             <point key="canvasLocation" x="139" y="111"/>
         </view>

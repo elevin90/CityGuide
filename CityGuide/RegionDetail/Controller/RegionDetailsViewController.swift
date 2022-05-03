@@ -32,7 +32,6 @@ class RegionDetailsViewController: UIViewController {
 
     
     private func setupUI() {
-        navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = UIColor.appColor(.background)
         let nib = UINib(nibName: CountryTableViewCell.nibName, bundle: Bundle.main)
         tableView.register(nib, forCellReuseIdentifier: CountryTableViewCell.nibName)
@@ -43,7 +42,7 @@ class RegionDetailsViewController: UIViewController {
         searchVC.searchResultsUpdater = self
         searchVC.delegate = self
         navigationItem.searchController = searchVC
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = presenter.regionTitle
         navigationItem.hidesSearchBarWhenScrolling = true
         tableView.estimatedRowHeight = 50

@@ -43,6 +43,11 @@ class RegionsListViewController: UIViewController {
         presenter.loadCountries()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     private func setupUI() {
         collectionView.collectionViewLayout = collectionLayout
         navigationController?.navigationBar.prefersLargeTitles = true

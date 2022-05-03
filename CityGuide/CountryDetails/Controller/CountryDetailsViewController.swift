@@ -50,11 +50,11 @@ class CountryDetailsViewController: UIViewController {
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight =  10
         navigationItem.title = presenter.country.capital
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "left-arrow"), style: .plain,
                                                            target: self, action: #selector(onBack))
         view.backgroundColor = UIColor.appColor(.cell)
-        navigationController?.topViewController?.extendedLayoutIncludesOpaqueBars = true
+        navigationController?.topViewController?.extendedLayoutIncludesOpaqueBars = false
     }
     
     @objc private func onBack() {
